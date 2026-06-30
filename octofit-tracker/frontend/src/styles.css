@@ -1,0 +1,9 @@
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 100%);
+}
