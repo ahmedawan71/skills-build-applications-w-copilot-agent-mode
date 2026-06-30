@@ -8,6 +8,7 @@ export const mongoUri =
 export function getApiBaseUrl() {
   const codespaceName = process.env.CODESPACE_NAME;
 
+  // Prefer the Codespaces URL when available, otherwise use local development.
   return codespaceName
     ? `https://${codespaceName}-8000.app.github.dev`
     : 'http://localhost:8000';
