@@ -6,6 +6,8 @@ import { getApiBaseUrl, getMongooseConnection, port } from './config/database.js
 
 const app = express();
 const apiBaseUrl = getApiBaseUrl();
+// CODESPACE_NAME drives the Codespaces URL when the backend runs remotely.
+// Example codespace URL: https://$CODESPACE_NAME-8000.app.github.dev
 
 app.use(express.json());
 
