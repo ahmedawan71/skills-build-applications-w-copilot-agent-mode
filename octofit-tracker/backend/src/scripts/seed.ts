@@ -7,7 +7,7 @@ import {
   User,
   Workout,
 } from '../models.js';
-import { mongoUri } from '../config.js';
+import { mongoUri } from '../config/database.js';
 
 /**
  * Seed the octofit_db database with test data.

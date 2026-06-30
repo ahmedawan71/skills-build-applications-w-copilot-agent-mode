@@ -1,3 +1,5 @@
+import mongoose from 'mongoose';
+
 export const port = Number(process.env.PORT ?? 8000);
 
 export const mongoUri =
@@ -9,4 +11,8 @@ export function getApiBaseUrl() {
   return codespaceName
     ? `https://${codespaceName}-8000.app.github.dev`
     : 'http://localhost:8000';
+}
+
+export function getMongooseConnection() {
+  return mongoose.connect(mongoUri);
 }

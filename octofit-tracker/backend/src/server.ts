@@ -2,7 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 
 import { Activity, LeaderboardEntry, Team, User, Workout } from './models.js';
-import { getApiBaseUrl, mongoUri, port } from './config.js';
+import { getApiBaseUrl, getMongooseConnection, port } from './config/database.js';
 
 const app = express();
 const apiBaseUrl = getApiBaseUrl();
@@ -58,7 +58,7 @@ registerCollectionRoute('/api/leaderboard/', 'leaderboard', LeaderboardEntry);
 registerCollectionRoute('/api/workouts/', 'workouts', Workout);
 
 async function start() {
-  await mongoose.connect(mongoUri);
+  await getMongooseConnection();
 
   app.listen(port, () => {
     console.log(`OctoFit Tracker backend listening on port ${port}`);
