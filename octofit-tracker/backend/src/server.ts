@@ -28,12 +28,13 @@ function registerCollectionRoute(
     | typeof Workout,
 ) {
   app.get(path, async (_request, response) => {
-    const count = await collectionModel.countDocuments();
+    const documents = await collectionModel.find({}).sort({ createdAt: -1 }).lean();
 
     response.json({
       apiBaseUrl,
       collectionName,
-      count,
+      count: documents.length,
+      documents,
       message: `${collectionName} route is ready`,
     });
   });
